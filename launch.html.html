@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>launch.sh - Birthday Deployment</title>
+  <style>
+    body {
+      background-color: black;
+      color: #00FF00;
+      font-family: monospace;
+      padding: 20px;
+    }
+    #terminal {
+      white-space: pre-wrap;
+    }
+    .cursor {
+      display: inline-block;
+      width: 10px;
+      background-color: #00FF00;
+      animation: blink 1s step-start infinite;
+    }
+    @keyframes blink {
+      50% { background-color: transparent; }
+    }
+  </style>
+</head>
+<body>
+  <div id="terminal"></div><span class="cursor"></span>
+
+  <script>
+    const lines = [
+      "$ ./launch.sh",
+      "",
+      "Initializing Birthday Protocol...",
+      "Authenticating Love Engine...",
+      "✔ Verified: Founder of Deploid X – Identity Confirmed (Modak 😘)",
+      "Deploying: Unlimited Hugs, Virtual Kisses, and Lifetime Admiration",
+      "Syncing Heartbeats... 💓",
+      "Uploading Memory Logs...",
+      "🎉 HAPPY BIRTHDAY MODAK!!! 🎉",
+      "You are the core module of my life. Thank you for being the dream I never knew I needed.",
+      "You’re the biggest blessing in my life, the peace to my chaos, and the strength behind my smile.",
+      "You're not just part of my world — you ARE my world. 💫",
+      "Final Status: Love deployed successfully 💝",
+      "– from your Baby of Deploid X"
+    ];
+
+    let index = 0;
+    let terminal = document.getElementById('terminal');
+
+    function typeLine() {
+      if (index < lines.length) {
+        let line = lines[index];
+        let i = 0;
+        let typing = setInterval(() => {
+          terminal.textContent += line[i++];
+          if (i >= line.length) {
+            clearInterval(typing);
+            terminal.textContent += '\n';
+            index++;
+            setTimeout(typeLine, 500);
+          }
+        }, 30);
+      }
+    }
+
+    typeLine();
+  </script>
+</body>
+</html>
